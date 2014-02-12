@@ -13,6 +13,7 @@ $projects = array(
     ),
     'futurity-website' => array(
         'title' => 'Futurity Website',
+        'live' => 'http://futurity.pro/',
         'git' => 'git@github.com:futurity-pro/futurity-website.git',
     ),
 );
@@ -21,10 +22,4 @@ $url = $_SERVER['PATH_INFO'];
 
 if ($url) {
     list($null, $project, $branch) = explode('/', $url);
-}
-
-if($project == 'config') {
-    $project = false;
-} else {
-    $config = false;
 }

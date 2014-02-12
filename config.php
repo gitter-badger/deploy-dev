@@ -1,4 +1,4 @@
-<?php if ($config): ?>
+<?php if ($project == 'config'): ?>
     <form role="form">
         <h2>Configuration</h2>
             <?php foreach($config as $id => $value): ?>

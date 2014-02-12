@@ -34,13 +34,28 @@
                 <ul class="nav navbar-nav">
                     <li><a href="<?php echo $base . 'config' ?>">Configuration</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Choose project <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <?php if($project): ?>
+                            <?php echo $projects[$project]['title'] ?>
+                            <?php else: ?>
+                            Choose project
+                            <?php endif; ?>
+                            <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <?php if($projects) foreach($projects as $id => $data): ?>
                             <li><a href="<?php echo $base . $id ?>"><?php echo $data['title'] ?></a></li>
                             <?php endforeach; ?>
                             <li class="divider"></li>
                             <li><a href="#"><span class="glyphicon glyphicon-plus"></span> New Project</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            master
+                            <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">master</a></li>
+                            <li><a href="#">dev</a></li>
                         </ul>
                     </li>
                 </ul>
