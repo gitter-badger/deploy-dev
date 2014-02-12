@@ -35,7 +35,7 @@
                     <li><a href="<?php echo $base . 'config' ?>">Configuration</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php if($project): ?>
+                            <?php if($project && $project != 'config'): ?>
                             <?php echo $projects[$project]['title'] ?>
                             <?php else: ?>
                             Choose project
