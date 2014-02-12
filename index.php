@@ -1,10 +1,11 @@
+<?php include "functions.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Deploy</title>
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
@@ -25,33 +26,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Deployment</a>
+                <a class="navbar-brand" href="<?php echo $base ?>">Deploy</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    <li><a href="<?php echo $base . 'config' ?>">Configuration</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project X <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Choose project <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <?php if($projects) foreach($projects as $id => $data): ?>
+                            <li><a href="<?php echo $base . $id ?>"><?php echo $data['title'] ?></a></li>
+                            <?php endforeach; ?>
                             <li class="divider"></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Add Project</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-plus"></span> New Project</a></li>
                         </ul>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <form role="form">
-        <h2>Project X</h2>
-        <div class="form-group col-sm-3">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-        </div>
-    </form>
+    <?php include 'project.php' ?>
+    <?php include 'config.php' ?>
 </div>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
