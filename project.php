@@ -1,4 +1,4 @@
-<?php if ($project): ?>
+<?php if ($project && $project != 'config'): ?>
     <form role="form">
         <h2><?php echo $projects[$project]['title'] ?></h2>
         <div class="form-group col-sm-6">
